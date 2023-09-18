@@ -1,5 +1,8 @@
 namespace PicacomicSharp.Common;
 
+/// <summary>
+///     图像的质量。
+/// </summary>
 public enum ImageQuality
 {
     Original,
@@ -10,6 +13,12 @@ public enum ImageQuality
 
 public static class ImageQualityExtensions
 {
+    /// <summary>
+    ///     将 <see cref="ImageQuality" /> 转换为 API 所需的字符串。
+    /// </summary>
+    /// <param name="imageQuality"></param>
+    /// <returns>小写名称</returns>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
     public static string ToApiString(this ImageQuality imageQuality) =>
         imageQuality switch
         {

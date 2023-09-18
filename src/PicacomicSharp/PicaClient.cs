@@ -2,6 +2,9 @@ using PicacomicSharp.DependencyInjection;
 
 namespace PicacomicSharp;
 
+/// <summary>
+///     用来发送API请求的 Client，推荐使用 DI Container 来获取实例。
+/// </summary>
 public class PicaClient
 {
     public HttpClient Client { get; private set; }

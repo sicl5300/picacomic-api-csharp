@@ -2,11 +2,30 @@
 
 namespace PicacomicSharp.DependencyInjection;
 
+/// <summary>
+///     程序配置。目前混合了 DI 和 HttpClient 所需要的配置，还有一些其他的只读字段，供API签名（认证）使用。
+///     TODO 分离 DI、HttpClient、API签名的配置。
+/// </summary>
 public class PicaConfiguration
 {
+    /// <summary>
+    ///     API 根地址，需要以 / 结尾。
+    /// </summary>
     public string BaseUrl = "https://picaapi.picacomic.com/";
+
+    /// <summary>
+    ///     超时时间，单位为秒。
+    /// </summary>
     public int Timeout = 10;
+
+    /// <summary>
+    ///     加载漫画图片时的质量。
+    /// </summary>
     public ImageQuality ImageQuality = ImageQuality.Original;
+    
+    /// <summary>
+    ///     加载漫画缩略图、头像略缩图、分类略缩图等内容时的质量。
+    /// </summary>
     public ImageQuality ThumbnailQuality = ImageQuality.Medium;
 
     #region API Authorization
