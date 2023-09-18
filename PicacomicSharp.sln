@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicacomicSharp", "src\PicacomicSharp\PicacomicSharp.csproj", "{96A44377-D3B7-43C7-8B40-E7D060D7A088}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{F14D49C5-09DC-42CD-ACBF-54D1455F4E09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "src\ConsoleApp1\ConsoleApp1.csproj", "{2C0F3EC0-BA23-4B5A-A977-13E6137CD3C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96A44377-D3B7-43C7-8B40-E7D060D7A088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96A44377-D3B7-43C7-8B40-E7D060D7A088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96A44377-D3B7-43C7-8B40-E7D060D7A088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96A44377-D3B7-43C7-8B40-E7D060D7A088}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C0F3EC0-BA23-4B5A-A977-13E6137CD3C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C0F3EC0-BA23-4B5A-A977-13E6137CD3C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C0F3EC0-BA23-4B5A-A977-13E6137CD3C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C0F3EC0-BA23-4B5A-A977-13E6137CD3C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{96A44377-D3B7-43C7-8B40-E7D060D7A088} = {F14D49C5-09DC-42CD-ACBF-54D1455F4E09}
+		{2C0F3EC0-BA23-4B5A-A977-13E6137CD3C4} = {F14D49C5-09DC-42CD-ACBF-54D1455F4E09}
+	EndGlobalSection
+EndGlobal
