@@ -24,10 +24,24 @@ public class PicaConfiguration
     public readonly string _nonce = Guid.NewGuid().ToString().Replace("-", string.Empty);
     public string AuthorizationToken { get; set; } = string.Empty;
 
+    public Dictionary<string, string> DefaultHeaders { get; }
 
     #endregion
 
     public PicaConfiguration()
     {
+        DefaultHeaders = new Dictionary<string, string>
+        {
+            ["api-key"] = _apiKey,
+            ["accept"] = _accept,
+            ["app-channel"] = _channel,
+            ["app-version"] = _version,
+            ["app-build-version"] = _buildVersion,
+            ["nonce"] = _nonce,
+            ["app-platform"] = _platform,
+            ["app-uuid"] = _appUuid,
+            ["user-Agent"] = _userAgent,
+            ["Host"] = _host,
+        };
     }
 }

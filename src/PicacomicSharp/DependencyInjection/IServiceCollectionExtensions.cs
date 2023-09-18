@@ -11,8 +11,9 @@ public static class IServiceCollectionExtensions
         configure?.Invoke(configuration);
 
         services.AddSingleton<PicaConfiguration>(configuration);
-        services.AddHttpClient<PicaClient>();
-            
+        services.AddTransient<PicaHttpClientHandler>();
+        services.AddHttpClient<PicaClient>()
+            .ConfigurePrimaryHttpMessageHandler<PicaHttpClientHandler>();
         
         return services;
     }
