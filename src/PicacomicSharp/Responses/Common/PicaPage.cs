@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace PicacomicSharp.Responses.Abstractions;
+namespace PicacomicSharp.Responses.Common;
 
 /// <summary>
 ///     标准的分页响应数据，代表着下面例子中的<c>data</c>节。包含内容列表、当前页码、总页数、总元素数（所有页面中的元素之和）等等。
