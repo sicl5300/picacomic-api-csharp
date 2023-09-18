@@ -30,18 +30,18 @@ public class PicaConfiguration
 
     #region API Authorization
 
-    public readonly string _host = "picaapi.picacomic.com";
-    public readonly string _channel = "1";
-    public readonly string _version = "2.2.1.2.3.4";
-    public readonly string _buildVersion = "45";
-    public readonly string _platform = "android";
-    public readonly string _userAgent = "okhttp/3.8.1";
-    public readonly string _appUuid = "defaultUuid";
-    public readonly string _accept = "application/vnd.picacomic.com.v1+json";
+    internal readonly string _host = "picaapi.picacomic.com";
+    internal readonly string _channel = "1";
+    internal readonly string _version = "2.2.1.2.3.4";
+    internal readonly string _buildVersion = "45";
+    internal readonly string _platform = "android";
+    internal readonly string _userAgent = "okhttp/3.8.1";
+    internal readonly string _appUuid = "defaultUuid";
+    internal readonly string _accept = "application/vnd.picacomic.com.v1+json";
 
-    public readonly string _apiKey = "C69BAF41DA5ABD1FFEDC6D2FEA56B";
-    public readonly string _nonce = Guid.NewGuid().ToString().Replace("-", string.Empty);
-    public string AuthorizationToken { get; set; } = string.Empty;
+    internal readonly string _apiKey = "C69BAF41DA5ABD1FFEDC6D2FEA56B";
+    internal readonly string _nonce = Guid.NewGuid().ToString().Replace("-", string.Empty);
+    public string AuthorizationToken { get; internal set; } = string.Empty;
 
     public Dictionary<string, string> DefaultHeaders { get; }
 

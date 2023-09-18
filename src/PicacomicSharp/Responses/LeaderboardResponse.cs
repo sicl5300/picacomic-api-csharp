@@ -2,7 +2,7 @@
 
 namespace PicacomicSharp.Responses;
 
-public class LeaderboardResponse : IResponseData
+internal class LeaderboardResponse : IResponseData
 {
     [JsonPropertyName("comics")] public List<ComicDetail> Comics { get; set; } = new();
 }

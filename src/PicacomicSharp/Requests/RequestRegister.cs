@@ -43,5 +43,5 @@ public class RequestRegister : IPost
     [JsonPropertyName("question3")] public required string Question3 { get; init; }
 
     [JsonPropertyName("answer3")] public required string Answer3 { get; init; }
-    public string Url => "auth/register";
+    string IRequestData.Url => "auth/register";
 }

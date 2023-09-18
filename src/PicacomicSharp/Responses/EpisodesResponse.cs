@@ -2,7 +2,7 @@
 
 namespace PicacomicSharp.Responses;
 
-public class EpisodesResponse : IResponseData, IPagedResponse<EpisodeInfo>
+internal class EpisodesResponse : IResponseData, IPagedResponse<EpisodeInfo>
 {
     [JsonPropertyName("eps")] public required PicaPage<EpisodeInfo> Data { get; set; }
 }

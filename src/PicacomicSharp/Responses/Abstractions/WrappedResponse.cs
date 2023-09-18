@@ -6,7 +6,7 @@ namespace PicacomicSharp.Responses.Abstractions;
 ///     标准API返回内容的包装，包含<see cref="Code" />、<see cref="Error" />、<see cref="Message" />和<see cref="Data" />。
 /// </summary>
 /// <typeparam name="T"><see cref="IResponseData" />，即包装在内的<see cref="Data"/></typeparam>
-public class WrappedResponse<T> where T : IResponseData
+internal class WrappedResponse<T> where T : IResponseData
 {
     [JsonPropertyName("code")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]

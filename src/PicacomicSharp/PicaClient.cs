@@ -14,7 +14,7 @@ namespace PicacomicSharp;
 public class PicaClient
 {
     private readonly PicaConfiguration _configuration;
-    public HttpClient Client { get; private set; }
+    private readonly HttpClient _client;
 
     public PicaClient(PicaConfiguration configuration, HttpClient client)
     {
@@ -26,10 +26,10 @@ public class PicaClient
             client.DefaultRequestHeaders.Add(pair.Key, pair.Value);
         }
 
-        Client = client;
+        _client = client;
     }
 
-    internal async Task<TResponse> SendAsync<TRequest, TResponse>(TRequest config)
+    private async Task<TResponse> SendAsync<TRequest, TResponse>(TRequest config)
         where TResponse : IResponseData
         where TRequest : IRequestData
     {
@@ -49,7 +49,7 @@ public class PicaClient
             requestMessage.Content = content;
         }
 
-        var response = await Client.SendAsync(requestMessage);
+        var response = await _client.SendAsync(requestMessage);
         var message = await response.Content.ReadAsStringAsync();
 
         var wrapped = JsonSerializer.Deserialize<WrappedResponse<TResponse>>(message, new JsonSerializerOptions

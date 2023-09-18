@@ -2,7 +2,7 @@
 
 namespace PicacomicSharp.Responses;
 
-public class KeywordsResponse : IResponseData
+internal class KeywordsResponse : IResponseData
 {
     [JsonPropertyName("keywords")] public required List<string> Keywords { get; set; }
 }

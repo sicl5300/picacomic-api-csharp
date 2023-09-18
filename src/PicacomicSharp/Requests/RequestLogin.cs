@@ -20,5 +20,5 @@ public sealed class RequestLogin : IPost
     [JsonPropertyName("password")]
     public required string Password { get; init; }
 
-    [JsonIgnore] public string Url => "auth/sign-in";
+    [JsonIgnore] string IRequestData.Url => "auth/sign-in";
 }

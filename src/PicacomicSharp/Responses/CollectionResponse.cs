@@ -2,7 +2,7 @@
 
 namespace PicacomicSharp.Responses;
 
-public class CollectionResponse : IResponseData
+internal class CollectionResponse : IResponseData
 {
     [JsonPropertyName("collections")] public required List<ComicDetail> Comics { get; set; }
 }

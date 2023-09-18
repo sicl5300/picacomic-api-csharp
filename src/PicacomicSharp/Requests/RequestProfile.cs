@@ -10,7 +10,7 @@ public class RequestProfile : IGet
     /// </summary>
     public required string? Id { get; init; } = default;
 
-    public string Url => Id switch
+    string IRequestData.Url => Id switch
     {
         null or "" => "users/profile",
         _ => $"users/{Id}/profile"

@@ -5,7 +5,7 @@ namespace PicacomicSharp.Responses.Abstractions;
 /// </summary>
 /// <example>针对如下API返回内容<code>{ "code": 200, "data":{ "comics": { "page":1 ... ,"docs": [具体元素列表] }} } </code></example>
 /// <typeparam name="TDoc"><c>docs[]</c>中的元素类型</typeparam>
-public interface IPagedResponse<TDoc>
+internal interface IPagedResponse<TDoc>
 {
     /// <summary>
     ///     <see cref="PicaPage{TDoc}" />, 必须注解上

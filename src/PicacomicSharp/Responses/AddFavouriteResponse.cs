@@ -3,7 +3,7 @@ using PicacomicSharp.Common;
 
 namespace PicacomicSharp.Responses;
 
-public class AddFavouriteResponse : IResponseData
+internal class AddFavouriteResponse : IResponseData
 {
     /// <summary>
     ///     获取 <see cref="ActionEnum" />，不要直接使用此属性。

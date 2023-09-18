@@ -16,5 +16,5 @@ public class RequestSearchByCategory : IGet
     public required Sort Sort { get; init; } = Sort.Default;
     public required int Page { get; set; }
 
-    public string Url => $"comics?page={Page}&c={HttpUtility.UrlEncode(CategoryName)}&s={Sort.ToApiString()}";
+    string IRequestData.Url => $"comics?page={Page}&c={HttpUtility.UrlEncode(CategoryName)}&s={Sort.ToApiString()}";
 }

@@ -29,5 +29,5 @@ public class RequestAdvancedSearch : IPost
 
     [JsonPropertyName("keyword")] public required string Keyword { get; set; }
     [JsonPropertyName("sort")] public string SortString { get; set; }
-    [JsonIgnore] public string Url => $"comics/advanced-search?page={Page}";
+    [JsonIgnore] string IRequestData.Url => $"comics/advanced-search?page={Page}";
 }

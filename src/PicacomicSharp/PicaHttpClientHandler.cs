@@ -8,7 +8,7 @@ namespace PicacomicSharp;
 /// <summary>
 ///     本类继承自 <see cref="HttpClientHandler" />，并重写了 <see cref="HttpClientHandler.SendAsync" /> 方法，以便在发送请求前进行签名。
 /// </summary>
-public class PicaHttpClientHandler : HttpClientHandler
+internal class PicaHttpClientHandler : HttpClientHandler
 {
     private readonly PicaConfiguration _configuration;
 

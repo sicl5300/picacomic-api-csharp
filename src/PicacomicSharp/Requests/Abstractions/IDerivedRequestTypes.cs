@@ -1,9 +1,9 @@
 namespace PicacomicSharp.Requests.Abstractions;
 
-public interface IPost : IRequestData
+internal interface IPost : IRequestData
 {
 }
 
-public interface IGet : IRequestData
+internal interface IGet : IRequestData
 {
 }
