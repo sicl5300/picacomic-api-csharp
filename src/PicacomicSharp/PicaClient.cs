@@ -44,8 +44,9 @@ public class PicaClient
 
         if (config is IPost)
         {
-            requestMessage.Content =
-                new StringContent(JsonSerializer.Serialize(config), Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonSerializer.Serialize(config), Encoding.UTF8, "application/json");
+            content.Headers.ContentType!.CharSet = "UTF-8";
+            requestMessage.Content = content;
         }
 
         var response = await Client.SendAsync(requestMessage);
