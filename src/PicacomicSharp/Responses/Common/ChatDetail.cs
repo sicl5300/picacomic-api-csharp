@@ -8,7 +8,7 @@ public class ChatDetail
 
     [JsonPropertyName("description")] public required string Description { get; set; }
 
-    [JsonPropertyName("url")] public required string Url { get; set; }
+    [JsonPropertyName("url")] public required string Link { get; set; }
 
     [JsonPropertyName("avatar")] public required string Avatar { get; set; }
 }

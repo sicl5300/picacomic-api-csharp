@@ -13,7 +13,7 @@ public class PicaPage<TDoc>
     ///    "Detail of contents"，具体内容列表。
     /// </summary>
     [JsonPropertyName("docs")]
-    public List<TDoc> Docs { get; set; }
+    public List<TDoc> Data { get; set; }
 
     /// <summary>
     ///     总<see cref="TDoc" />元素数，所有页面中的元素之和。

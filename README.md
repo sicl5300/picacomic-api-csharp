@@ -70,10 +70,9 @@ ShowImage(detail.Cover.ToString()); // 返回封面完整 URL
 PicaPage<EpisodeInfo> episodes = await client.GetComicBookEpisodesAsync(bookId: detail.Id, page: 1);
 
 /* 获取第一话信息
- * PicaPage<T> 是一个可重用的容器，那20个数据的列表就是 Docs 属性。
- * 请原谅这难懂的命名，API 设计者起的，我一时想不到更好的，我猜它是 Detail of Contents 的缩写。
+ * PicaPage<T> 是一个可重用的容器，那20个数据的列表就是 Data 属性。
  */
-EpisodeInfo firstEpisode = episodes.Docs.First();
+EpisodeInfo firstEpisode = episodes.Data.First();
 
 // 获取第一话的图片（40张每分页）
 PicaPage<ImageUrl> images = await client.OrderBookImagesAsync(
@@ -82,23 +81,23 @@ PicaPage<ImageUrl> images = await client.OrderBookImagesAsync(
     page: 1);
 
 // 依次显示每个图片
-foreach (ImageUrl image in images.Docs)
+foreach (ImageUrl image in images.Data)
 {
-    ShowImage(image.Media.ToString()); // 返回图片完整 URL
+    ShowImage(image.Image.ToString()); // 返回图片完整 URL
 }
 
 // 如果有下一页，TryGetNextPage 方法会返回 true
 // nextPage 变量代表着下一分页的页码
-while (images.TryGetNextPage(out int nextPage))  
+while (images.TryGetNextPage(out int nextPage))
 {
     // 获取后面的N张图片
     images = await client.OrderBookImagesAsync(bookId: detail.Id,
         epsOrder: firstEpisode.Order,
         page: nextPage);
     // 显示图片
-    foreach (ImageUrl image in images.Docs)
+    foreach (ImageUrl image in images.Data)
     {
-        image.Media.ToString();
+        image.Image.ToString();
     }
 }
 

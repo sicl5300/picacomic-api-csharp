@@ -22,7 +22,7 @@ public class CategoryDetail
     public required bool IsWeb { get; set; }
 
     [JsonPropertyName("active")]
-    public required bool Active { get; set; }
+    public required bool IsActive { get; set; }
 
     /// <summary>
     ///     仅在 <see cref="IsWeb" /> = true 时存在
