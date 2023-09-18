@@ -40,11 +40,12 @@ string token = await client.LoginAsync(new()
 
 令牌过期时间为 1~7 天，过期后需要重新登录。
 
-## 示例：阅读排行榜第一的漫画
+### 示例：阅读排行榜第一的漫画
 
 文中的 ShowImage 方法仅作为示例，你需要自己按照功能和实际情况实现。
 
 在这个示例里，你将了解到：
+
 - 如何获取阅读排行榜
 - 得到漫画图片 URL 的步骤
 - 数据的分页返回（`PicaPage<T>`）
@@ -101,6 +102,18 @@ while (images.TryGetNextPage(out int nextPage))
     }
 }
 
+```
+
+### 批量获取
+
+:warning: **注意：** 批量获取的 API 会返回大量数据，如果你不需要全部数据，应该使用分页获取。
+
+:red_circle: **警告：** 批量获取会在短时间内大量消耗服务器资源，你的账户可能会被***封禁***，或***限制访问***
+！！！请您明白，**这是您自己的责任，作者不会为此负责**！！！没有人知道风控策略，用别怕，怕别用，封别叫！
+
+```csharp
+List<ComicDetail> resp = await client.BulkGetFavourites(iterateToPage: 5);
+// 返回 5*20=100 个漫画简要信息，前提是你的收藏有这么多。
 ```
 
 ## 更多API
