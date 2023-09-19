@@ -7,9 +7,8 @@ public static partial class PicaClientExtensions
 {
     private const int DefaultIterateToPage = 5;
 
-    private static async IAsyncEnumerable<TDoc> BulkGetPages<TDoc, TFuncReturns>(this PicaClient client,
-        Func<int, Task<TFuncReturns>> func, int iterateToPage = DefaultIterateToPage)
-        where TFuncReturns : PicaPage<TDoc>
+    private static async IAsyncEnumerable<TDoc> BulkGetPages<TDoc>(this PicaClient client,
+        Func<int, Task<PicaPage<TDoc>>> func, int iterateToPage = DefaultIterateToPage)
     {
         var it = await func(1);
 
@@ -32,7 +31,7 @@ public static partial class PicaClientExtensions
         int iterateToPage = DefaultIterateToPage)
     {
         return await client
-            .BulkGetPages<CommentDetail, PicaPage<CommentDetail>>(client.GetMyCommentsAsync, iterateToPage)
+            .BulkGetPages<CommentDetail>(client.GetMyCommentsAsync, iterateToPage)
             .ToListAsync();
     }
 
@@ -48,7 +47,7 @@ public static partial class PicaClientExtensions
         Sort sort = Sort.Default)
     {
         return await client
-            .BulkGetPages<ComicDetail, PicaPage<ComicDetail>>(i => client.GetFavouritesAsync(i, sort), iterateToPage)
+            .BulkGetPages<ComicDetail>(i => client.GetFavouritesAsync(i, sort), iterateToPage)
             .ToListAsync();
     }
 
@@ -64,7 +63,7 @@ public static partial class PicaClientExtensions
         int iterateToPage = DefaultIterateToPage)
     {
         return await client
-            .BulkGetPages<ComicDetail, PicaPage<ComicDetail>>(i => client.SearchByCategoryAsync(payload), iterateToPage)
+            .BulkGetPages<ComicDetail>(i => client.SearchByCategoryAsync(payload), iterateToPage)
             .ToListAsync();
     }
 
@@ -80,7 +79,7 @@ public static partial class PicaClientExtensions
         int iterateToPage = DefaultIterateToPage)
     {
         return await client
-            .BulkGetPages<ComicDetail, PicaPage<ComicDetail>>(i => client.SearchAdvancedAsync(payload), iterateToPage)
+            .BulkGetPages<ComicDetail>(i => client.SearchAdvancedAsync(payload), iterateToPage)
             .ToListAsync();
     }
 
@@ -95,7 +94,7 @@ public static partial class PicaClientExtensions
         int iterateToPage = DefaultIterateToPage)
     {
         return await client
-            .BulkGetPages<ComicDetail, PicaPage<ComicDetail>>(i => client.SearchAsync(queryKeyword), iterateToPage)
+            .BulkGetPages<ComicDetail>(i => client.SearchAsync(queryKeyword), iterateToPage)
             .ToListAsync();
     }
 
@@ -110,7 +109,7 @@ public static partial class PicaClientExtensions
         int iterateToPage = DefaultIterateToPage)
     {
         return await client
-            .BulkGetPages<EpisodeInfo, PicaPage<EpisodeInfo>>(i => client.GetComicBookEpisodesAsync(bookId, i),
+            .BulkGetPages<EpisodeInfo>(i => client.GetComicBookEpisodesAsync(bookId, i),
                 iterateToPage)
             .ToListAsync();
     }
@@ -127,7 +126,7 @@ public static partial class PicaClientExtensions
         int iterateToPage = DefaultIterateToPage)
     {
         return await client
-            .BulkGetPages<ImageUrl, PicaPage<ImageUrl>>(i => client.OrderBookImagesAsync(bookId, epsOrder, i),
+            .BulkGetPages<ImageUrl>(i => client.OrderBookImagesAsync(bookId, epsOrder, i),
                 iterateToPage)
             .ToListAsync();
     }
