@@ -22,9 +22,8 @@ internal class PicaHttpClientHandler : HttpClientHandler
     {
         // Add headers customized
         message.Headers.Add("image-quality", _configuration.ImageQuality.ToApiString());
-
-        var ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
-        var time = Convert.ToInt64(ts.TotalSeconds).ToString();
+        
+        var time = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
         message.Headers.Add("time", time);
 
         message.Headers.Add("signature", GetSignature(message, time));
@@ -51,12 +50,8 @@ internal class PicaHttpClientHandler : HttpClientHandler
             var encoding = Encoding.UTF8;
             var keyByte = encoding.GetBytes(secret);
             var dataBytes = encoding.GetBytes(data.ToLower());
-            using (var hmacsha256 = new HMACSHA256(keyByte))
-            {
-                var hashmessage = hmacsha256.ComputeHash(dataBytes);
-                var sb = new StringBuilder();
-                return Convert.ToHexString(hashmessage).ToLower();
-            }
+            using var hmacsha256 = new HMACSHA256(keyByte);
+            return Convert.ToHexString(hmacsha256.ComputeHash(dataBytes)).ToLower();
         }
     }
 }
