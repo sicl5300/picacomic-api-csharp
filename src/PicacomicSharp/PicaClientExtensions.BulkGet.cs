@@ -1,8 +1,10 @@
-﻿using PicacomicSharp.Common;
+﻿using System.Diagnostics.CodeAnalysis;
+using PicacomicSharp.Common;
 using PicacomicSharp.Requests;
 
 namespace PicacomicSharp;
 
+[SuppressMessage("Usage", "MA0004:Use Task.ConfigureAwait(false)")]
 public static partial class PicaClientExtensions
 {
     private const int DefaultIterateToPage = 5;
@@ -27,7 +29,7 @@ public static partial class PicaClientExtensions
     /// <param name="client"></param>
     /// <param name="iterateToPage">获取到第几页</param>
     /// <returns></returns>
-    public static async Task<List<CommentDetail>> BulkGetMyComments(this PicaClient client,
+    public static async Task<IList<CommentDetail>> BulkGetMyComments(this PicaClient client,
         int iterateToPage = DefaultIterateToPage)
     {
         return await client
@@ -42,7 +44,7 @@ public static partial class PicaClientExtensions
     /// <param name="iterateToPage">获取到第几页</param>
     /// <param name="sort">排序</param>
     /// <returns></returns>
-    public static async Task<List<ComicDetail>> BulkGetFavourites(this PicaClient client,
+    public static async Task<IList<ComicDetail>> BulkGetFavourites(this PicaClient client,
         int iterateToPage = DefaultIterateToPage,
         Sort sort = Sort.Default)
     {
@@ -58,7 +60,7 @@ public static partial class PicaClientExtensions
     /// <param name="payload">分类，排序，分页</param>
     /// <param name="iterateToPage">获取到第几页</param>
     /// <returns></returns>
-    public static async Task<List<ComicDetail>> BulkSearchByCategory(this PicaClient client,
+    public static async Task<IList<ComicDetail>> BulkSearchByCategory(this PicaClient client,
         RequestSearchByCategory payload,
         int iterateToPage = DefaultIterateToPage)
     {
@@ -74,7 +76,7 @@ public static partial class PicaClientExtensions
     /// <param name="payload">分页，排序，关键词</param>
     /// <param name="iterateToPage">获取到第几页</param>
     /// <returns></returns>
-    public static async Task<List<ComicDetail>> BulkSearchAdvanced(this PicaClient client,
+    public static async Task<IList<ComicDetail>> BulkSearchAdvanced(this PicaClient client,
         RequestAdvancedSearch payload,
         int iterateToPage = DefaultIterateToPage)
     {
@@ -90,7 +92,7 @@ public static partial class PicaClientExtensions
     /// <param name="queryKeyword">查询关键字</param>
     /// <param name="iterateToPage">获取到第几页</param>
     /// <returns></returns>
-    public static async Task<List<ComicDetail>> BulkSearch(this PicaClient client, string queryKeyword,
+    public static async Task<IList<ComicDetail>> BulkSearch(this PicaClient client, string queryKeyword,
         int iterateToPage = DefaultIterateToPage)
     {
         return await client
