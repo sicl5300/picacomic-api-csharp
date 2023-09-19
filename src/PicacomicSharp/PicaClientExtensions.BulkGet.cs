@@ -9,8 +9,8 @@ public static partial class PicaClientExtensions
 {
     private const int DefaultIterateToPage = 5;
 
-    private static async IAsyncEnumerable<TDoc> BulkGetPages<TDoc>(this PicaClient client,
-        Func<int, Task<PicaPage<TDoc>>> func, int iterateToPage = DefaultIterateToPage)
+    private static async IAsyncEnumerable<TDoc> BulkGetPages<TDoc>(Func<int, Task<PicaPage<TDoc>>> func,
+        int iterateToPage = DefaultIterateToPage)
     {
         var it = await func(1);
 
@@ -32,8 +32,7 @@ public static partial class PicaClientExtensions
     public static async Task<IList<CommentDetail>> BulkGetMyComments(this PicaClient client,
         int iterateToPage = DefaultIterateToPage)
     {
-        return await client
-            .BulkGetPages<CommentDetail>(client.GetMyCommentsAsync, iterateToPage)
+        return await BulkGetPages<CommentDetail>(client.GetMyCommentsAsync, iterateToPage)
             .ToListAsync();
     }
 
@@ -48,8 +47,7 @@ public static partial class PicaClientExtensions
         int iterateToPage = DefaultIterateToPage,
         Sort sort = Sort.Default)
     {
-        return await client
-            .BulkGetPages<ComicDetail>(i => client.GetFavouritesAsync(i, sort), iterateToPage)
+        return await BulkGetPages<ComicDetail>(i => client.GetFavouritesAsync(i, sort), iterateToPage)
             .ToListAsync();
     }
 
@@ -64,8 +62,7 @@ public static partial class PicaClientExtensions
         RequestSearchByCategory payload,
         int iterateToPage = DefaultIterateToPage)
     {
-        return await client
-            .BulkGetPages<ComicDetail>(i =>
+        return await BulkGetPages<ComicDetail>(i =>
             {
                 payload.Page = i;
                 return client.SearchByCategoryAsync(payload);
@@ -84,8 +81,7 @@ public static partial class PicaClientExtensions
         RequestAdvancedSearch payload,
         int iterateToPage = DefaultIterateToPage)
     {
-        return await client
-            .BulkGetPages<ComicDetail>(i =>
+        return await BulkGetPages<ComicDetail>(i =>
             {
                 payload.Page = i;
                 return client.SearchAdvancedAsync(payload);
@@ -103,8 +99,7 @@ public static partial class PicaClientExtensions
     public static async Task<IList<ComicDetail>> BulkSearch(this PicaClient client, string queryKeyword,
         int iterateToPage = DefaultIterateToPage)
     {
-        return await client
-            .BulkGetPages<ComicDetail>(i => client.SearchAsync(queryKeyword, i), iterateToPage)
+        return await BulkGetPages<ComicDetail>(i => client.SearchAsync(queryKeyword, i), iterateToPage)
             .ToListAsync();
     }
 
@@ -115,11 +110,10 @@ public static partial class PicaClientExtensions
     /// <param name="bookId">漫画独一ID</param>
     /// <param name="iterateToPage">获取到第几页</param>
     /// <returns></returns>
-    public static async Task<List<EpisodeInfo>> BulkGetComicBookEpisodes(this PicaClient client, string bookId,
+    public static async Task<IList<EpisodeInfo>> BulkGetComicBookEpisodes(this PicaClient client, string bookId,
         int iterateToPage = DefaultIterateToPage)
     {
-        return await client
-            .BulkGetPages<EpisodeInfo>(i => client.GetComicBookEpisodesAsync(bookId, i),
+        return await BulkGetPages<EpisodeInfo>(i => client.GetComicBookEpisodesAsync(bookId, i),
                 iterateToPage)
             .ToListAsync();
     }
@@ -132,11 +126,10 @@ public static partial class PicaClientExtensions
     /// <param name="epsOrder">章节编号</param>
     /// <param name="iterateToPage">获取到第几页</param>
     /// <returns></returns>
-    public static async Task<List<ImageUrl>> BulkOrderBookImages(this PicaClient client, string bookId, int epsOrder,
+    public static async Task<IList<ImageUrl>> BulkOrderBookImages(this PicaClient client, string bookId, int epsOrder,
         int iterateToPage = DefaultIterateToPage)
     {
-        return await client
-            .BulkGetPages<ImageUrl>(i => client.OrderBookImagesAsync(bookId, epsOrder, i),
+        return await BulkGetPages<ImageUrl>(i => client.OrderBookImagesAsync(bookId, epsOrder, i),
                 iterateToPage)
             .ToListAsync();
     }
