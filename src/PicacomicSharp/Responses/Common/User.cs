@@ -5,7 +5,7 @@ namespace PicacomicSharp.Responses.Common;
 /// <summary>
 ///     用户信息
 /// </summary>
-public class User
+public sealed class User
 {
     /// <summary>
     ///     用户唯一ID

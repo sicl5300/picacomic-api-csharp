@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace PicacomicSharp.Responses.Common;
 
-public class EpisodeInfo
+public sealed class EpisodeInfo
 {
     /// <summary>
     ///     从属于哪本漫画，漫画的唯一id，不要使用

@@ -2,7 +2,7 @@
 
 namespace PicacomicSharp.Responses;
 
-public class InitResult : IResponseData
+public sealed class InitResult : IResponseData
 {
     [JsonPropertyName("isPunched")] public bool IsPunched { get; set; }
 

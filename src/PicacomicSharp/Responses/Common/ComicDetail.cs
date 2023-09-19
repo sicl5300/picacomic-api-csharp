@@ -6,7 +6,7 @@ namespace PicacomicSharp.Responses.Common;
 ///     （简化版）漫画详情，不包含上传者信息。
 ///     注意：本类包含很多 Nullable 类型，请注意判空。
 /// </summary>
-public class ComicDetail
+public sealed class ComicDetail
 {
     /// <summary>
     ///     漫画唯一ID

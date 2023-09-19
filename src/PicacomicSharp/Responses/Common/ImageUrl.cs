@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace PicacomicSharp.Responses.Common;
 
-public class ImageUrl
+public sealed class ImageUrl
 {
     [JsonPropertyName("_id")] public required string _Id { get; set; }
 

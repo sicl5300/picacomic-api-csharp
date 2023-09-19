@@ -7,5 +7,5 @@ internal interface IRequestData
     ///     需要被重写，可以自己实现 String Interpolation 来 URL 传参，传参时请注意使用 UrlEncode。
     ///     如果请求的类型是 POST，则必须注解为 <see cref="System.Text.Json.Serialization.JsonIgnoreAttribute"/>！
     /// </summary>
-    internal string Url { get; }
+    internal abstract string Url { get; }
 }

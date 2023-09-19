@@ -2,7 +2,7 @@
 
 namespace PicacomicSharp.Responses;
 
-public class PunchInResult : IResponseData
+public sealed class PunchInResult : IResponseData
 {
     /// <summary>
     ///     第一次签到: <code>"res": {"status": "ok", "punchInLastDay": "2021-08-01"}</code>

@@ -4,7 +4,7 @@
 
 namespace PicacomicSharp.Responses;
 
-internal class ChatListResponse : IResponseData
+internal sealed class ChatListResponse : IResponseData
 {
     [JsonPropertyName("chatList")] public required List<ChatDetail> ChatDetail { get; set; }
 }

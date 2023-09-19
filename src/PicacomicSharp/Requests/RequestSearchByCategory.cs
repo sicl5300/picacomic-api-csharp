@@ -4,7 +4,7 @@ using PicacomicSharp.Common;
 namespace PicacomicSharp.Requests;
 
 /// <summary>
-///     按分类名字搜索
+///     按分类名字搜索（分类，排序，分页）
 /// </summary>
 public class RequestSearchByCategory : IGet
 {

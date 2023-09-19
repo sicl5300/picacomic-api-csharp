@@ -7,7 +7,7 @@ namespace PicacomicSharp.Requests;
 ///     POST数据包，用于高级搜索（分页，排序，关键词）。<br />
 ///     你需要在构造时手动传入页码，而不是使用 required initializer。
 /// </summary>
-public class RequestAdvancedSearch : IPost
+public sealed class RequestAdvancedSearch : IPost
 {
     /// <summary>
     ///     Manually pass page number in it.

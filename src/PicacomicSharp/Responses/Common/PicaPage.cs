@@ -7,7 +7,7 @@ namespace PicacomicSharp.Responses.Common;
 /// </summary>
 /// <example>针对如下API返回内容<code>{ "code": 200, "data":{ "comics": { "page":1 ... ,"docs": [具体元素列表] }} } </code></example>
 /// <typeparam name="TDoc"><c>docs[]</c>中的元素类型</typeparam>
-public class PicaPage<TDoc>
+public sealed class PicaPage<TDoc>
 {
     /// <summary>
     ///    "Detail of contents"，具体内容列表。

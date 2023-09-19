@@ -5,7 +5,7 @@ namespace PicacomicSharp.Responses.Common;
 /// <summary>
 ///     资源地址
 /// </summary>
-public class ResourceUrl
+public sealed class ResourceUrl
 {
     /// <summary>
     ///     源文件名称，没有用

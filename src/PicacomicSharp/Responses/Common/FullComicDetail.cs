@@ -5,7 +5,7 @@ namespace PicacomicSharp.Responses.Common;
 /// <summary>
 ///     完整的漫画详情，包含上传者信息，漫画信息，漫画状态，漫画统计信息...
 /// </summary>
-public class FullComicDetail
+public sealed class FullComicDetail
 {
     /// <summary>
     ///     漫画唯一ID

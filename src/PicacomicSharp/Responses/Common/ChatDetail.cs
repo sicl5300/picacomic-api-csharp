@@ -2,7 +2,7 @@
 
 namespace PicacomicSharp.Responses.Common;
 
-public class ChatDetail
+public sealed class ChatDetail
 {
     [JsonPropertyName("title")] public required string Title { get; set; }
 

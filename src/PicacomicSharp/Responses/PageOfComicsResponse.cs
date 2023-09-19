@@ -2,7 +2,7 @@
 
 namespace PicacomicSharp.Responses;
 
-internal class PageOfComicsResponse : IResponseData, IPagedResponse<ComicDetail>
+internal sealed class PageOfComicsResponse : IResponseData, IPagedResponse<ComicDetail>
 {
     [JsonPropertyName("comics")] public PicaPage<ComicDetail> Data { get; set; }
 }

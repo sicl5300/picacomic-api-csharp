@@ -2,7 +2,7 @@
 
 namespace PicacomicSharp.Responses;
 
-internal class PageOfCommentsResponse : IResponseData, IPagedResponse<CommentDetail>
+internal sealed class PageOfCommentsResponse : IResponseData, IPagedResponse<CommentDetail>
 {
     [JsonPropertyName("comments")] public required PicaPage<CommentDetail> Data { get; set; }
 }

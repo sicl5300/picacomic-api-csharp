@@ -1,6 +1,6 @@
 ﻿namespace PicacomicSharp.Responses;
 
-internal class RegisterResponse : IResponseData
+internal sealed class RegisterResponse : IResponseData
 {
     // nothing inside, 200 means success.
 }

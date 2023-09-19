@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace PicacomicSharp.Responses.Common;
 
-public class CategoryDetail
+public sealed class CategoryDetail
 {
     /// <summary>
     ///     分类名称，可以用于搜索

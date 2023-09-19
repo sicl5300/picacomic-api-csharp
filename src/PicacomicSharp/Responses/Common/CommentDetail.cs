@@ -5,7 +5,7 @@ namespace PicacomicSharp.Responses.Common;
 /// <summary>
 ///     （简化）评论信息
 /// </summary>
-public class CommentDetail
+public sealed class CommentDetail
 {
     /// <summary>
     ///     评论的唯一ID

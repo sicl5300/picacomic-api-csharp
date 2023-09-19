@@ -2,7 +2,7 @@
 
 namespace PicacomicSharp.Responses;
 
-internal class CategoryListResponse : IResponseData
+internal sealed  class CategoryListResponse : IResponseData
 {
     [JsonPropertyName("categories")] public required List<CategoryDetail> Categories { get; set; }
 }

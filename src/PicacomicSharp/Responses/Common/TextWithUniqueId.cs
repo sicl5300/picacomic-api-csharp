@@ -6,7 +6,7 @@ namespace PicacomicSharp.Responses.Common;
 /// <summary>
 ///     文字+唯一ID
 /// </summary>
-public class TextWithUniqueId
+public sealed class TextWithUniqueId
 {
     [JsonPropertyName("_id")] public string Id { get; set; }
 

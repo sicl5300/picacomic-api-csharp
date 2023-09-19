@@ -7,7 +7,7 @@ namespace PicacomicSharp.Requests;
 /// <summary>
 ///     用户注册请求
 /// </summary>
-public class RequestRegister : IPost
+public sealed class RequestRegister : IPost
 {
     public RequestRegister(Gender gender)
     {

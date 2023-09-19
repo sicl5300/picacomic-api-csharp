@@ -2,7 +2,7 @@
 
 namespace PicacomicSharp.Responses;
 
-internal class ProfileResponse : IResponseData
+internal sealed class ProfileResponse : IResponseData
 {
     [JsonPropertyName("user")] public required User Data { get; set; }
 }

@@ -3,7 +3,7 @@
 // ReSharper disable ClassNeverInstantiated.Global
 namespace PicacomicSharp.Responses;
 
-public sealed class LoginResponse : IResponseData
+internal sealed class LoginResponse : IResponseData
 {
     /// <summary>
     ///     认证令牌。可能在7天后过期。
