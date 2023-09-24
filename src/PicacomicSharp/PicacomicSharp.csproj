@@ -4,6 +4,23 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>PicacomicSharp</PackageId>
+        <Title>picacomic-api-csharp</Title>
+        <Authors>Joseph D.X.</Authors>
+        <Description>c#某神秘粉色漫画软件api</Description>
+        <RepositoryUrl>https://github.com/sicl5300/picacomic-api-csharp</RepositoryUrl>
+        <RepositoryType>github</RepositoryType>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <AssemblyVersion>1.0.0-alpha</AssemblyVersion>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <FileVersion>1</FileVersion>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+        <PublicSign>true</PublicSign>
+        <PackageProjectUrl>https://github.com/sicl5300/picacomic-api-csharp</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Version>1.0.0-pre1</Version>
     </PropertyGroup>
     
     <ItemGroup>
@@ -14,5 +31,7 @@
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0-rc.1.23419.4"/>
         <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0-rc.1.23419.4" />
         <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+
+        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 </Project>
