@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 
 namespace PicacomicSharp.Responses;
-
+#pragma warning disable CS8618 // 在退出构造函数时，不可为 null 的字段必须包含非 null 值。请考虑声明为可以为 null。
 public sealed class InitResult : IResponseData
 {
     [JsonPropertyName("isPunched")] public bool IsPunched { get; set; }
@@ -26,7 +26,7 @@ public sealed class InitResult : IResponseData
     ///     基础分类
     /// </summary>
     [JsonPropertyName("categories")]
-    public List<TextWithUniqueId> Categories { get; set; }
+    public IList<TextWithUniqueId> Categories { get; set; }
 
     /// <summary>
     ///     null

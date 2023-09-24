@@ -12,7 +12,7 @@
         <RepositoryUrl>https://github.com/sicl5300/picacomic-api-csharp</RepositoryUrl>
         <RepositoryType>github</RepositoryType>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <AssemblyVersion>1.0.0-alpha</AssemblyVersion>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <FileVersion>1</FileVersion>
         <SignAssembly>true</SignAssembly>
@@ -20,7 +20,7 @@
         <PublicSign>true</PublicSign>
         <PackageProjectUrl>https://github.com/sicl5300/picacomic-api-csharp</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Version>1.0.0-pre1</Version>
+        <Version>1.0.0</Version>
     </PropertyGroup>
     
     <ItemGroup>

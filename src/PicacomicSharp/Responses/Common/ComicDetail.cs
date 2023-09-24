@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 
 namespace PicacomicSharp.Responses.Common;
-
+#pragma warning disable CS8618 // 在退出构造函数时，不可为 null 的字段必须包含非 null 值。请考虑声明为可以为 null。
 /// <summary>
 ///     （简化版）漫画详情，不包含上传者信息。
 ///     注意：本类包含很多 Nullable 类型，请注意判空。
@@ -54,7 +54,7 @@ public sealed class ComicDetail
     ///     列表，漫画分类名称
     /// </summary>
     [JsonPropertyName("categories")]
-    public List<string> Categories { get; set; }
+    public IList<string> Categories { get; set; }
 
     /// <summary>
     ///     封面

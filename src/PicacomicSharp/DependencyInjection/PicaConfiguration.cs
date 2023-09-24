@@ -22,7 +22,7 @@ public class PicaConfiguration
     ///     加载漫画图片时的质量。
     /// </summary>
     public ImageQuality ImageQuality = ImageQuality.Original;
-    
+
     /// <summary>
     ///     加载漫画缩略图、头像略缩图、分类略缩图等内容时的质量。
     /// </summary>
@@ -40,27 +40,28 @@ public class PicaConfiguration
     internal readonly string _accept = "application/vnd.picacomic.com.v1+json";
 
     internal readonly string _apiKey = "C69BAF41DA5ABD1FFEDC6D2FEA56B";
-    internal readonly string _nonce = Guid.NewGuid().ToString().Replace("-", string.Empty);
+    internal readonly string _nonce = Guid.NewGuid().ToString().Replace("-", string.Empty, StringComparison.Ordinal);
     public string AuthorizationToken { get; internal set; } = string.Empty;
 
-    public Dictionary<string, string> DefaultHeaders { get; }
+    public IDictionary<string, string> DefaultHeaders { get; }
 
     #endregion
 
     public PicaConfiguration()
     {
         DefaultHeaders = new Dictionary<string, string>
-        {
-            ["api-key"] = _apiKey,
-            ["accept"] = _accept,
-            ["app-channel"] = _channel,
-            ["app-version"] = _version,
-            ["app-build-version"] = _buildVersion,
-            ["nonce"] = _nonce,
-            ["app-platform"] = _platform,
-            ["app-uuid"] = _appUuid,
-            ["user-Agent"] = _userAgent,
-            ["Host"] = _host,
-        };
+            (StringComparer.Ordinal)
+            {
+                ["api-key"] = _apiKey,
+                ["accept"] = _accept,
+                ["app-channel"] = _channel,
+                ["app-version"] = _version,
+                ["app-build-version"] = _buildVersion,
+                ["nonce"] = _nonce,
+                ["app-platform"] = _platform,
+                ["app-uuid"] = _appUuid,
+                ["user-Agent"] = _userAgent,
+                ["Host"] = _host,
+            };
     }
 }

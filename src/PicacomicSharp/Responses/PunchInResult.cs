@@ -13,7 +13,7 @@ public sealed class PunchInResult : IResponseData
     public required __Res? Result { get; set; } = default;
 
     [JsonIgnore] public bool IsSuccess => Result is not null;
-    [JsonIgnore] public bool IsDuplicate => Result is not null && Result?.Status == "fail";
+    [JsonIgnore] public bool IsDuplicate => Result is not null && string.Equals(Result?.Status, "fail", StringComparison.OrdinalIgnoreCase);
 
     /// <summary>
     ///     Result of punch-in.data

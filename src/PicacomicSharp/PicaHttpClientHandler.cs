@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 using PicacomicSharp.Common;
@@ -8,7 +9,7 @@ namespace PicacomicSharp;
 /// <summary>
 ///     本类继承自 <see cref="HttpClientHandler" />，并重写了 <see cref="HttpClientHandler.SendAsync" /> 方法，以便在发送请求前进行签名。
 /// </summary>
-internal class PicaHttpClientHandler : HttpClientHandler
+internal sealed class PicaHttpClientHandler : HttpClientHandler
 {
     private readonly PicaConfiguration _configuration;
 
@@ -41,7 +42,7 @@ internal class PicaHttpClientHandler : HttpClientHandler
         var url = message.RequestUri!.PathAndQuery[1..]; // Remove the leading slash
 
         var sigData = $"{url}{time}{_configuration._nonce}{message.Method}{_configuration._apiKey}";
-        var sigKey = "~d}$Q7$eIni=V)9\\RK/P.RM4;9[7|@/CA}b~OW!3?EV`:<>M7pddUBL5n|0/*Cn";
+        const string sigKey = "~d}$Q7$eIni=V)9\\RK/P.RM4;9[7|@/CA}b~OW!3?EV`:<>M7pddUBL5n|0/*Cn";
 
         return Hmac256(sigData, sigKey);
 

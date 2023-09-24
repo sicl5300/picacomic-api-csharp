@@ -17,16 +17,16 @@ internal sealed class WrappedResponse<T> where T : IResponseData
     /// </summary>
     [JsonPropertyName("error")]
     [JsonNumberHandling(JsonNumberHandling.AllowReadingFromString)]
-    public int? Error { get; set; } = default;
+    public int? Error { get; set; }
 
     [JsonPropertyName("message")]
-    public string? Message { get; set; } = default;
+    public string? Message { get; set; }
 
     /// <summary>
     ///     实际数据。
     /// </summary>
     [JsonPropertyName("data")]
-    public T? Data { get; set; } = default;
+    public T? Data { get; set; }
 
     public bool IsSuccess => Code == 200;
     public bool IsError => Error is not null;

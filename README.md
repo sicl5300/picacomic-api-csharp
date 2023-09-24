@@ -54,7 +54,7 @@ string token = await client.LoginAsync(new()
 
 ```csharp
 // 获取阅读排行榜（最近一周）
-List<ComicDetail> resp = await client.GetLeaderboardAsync(range: RankDateRange.Day7);
+IList<ComicDetail> resp = await client.GetLeaderboardAsync(range: RankDateRange.Day7);
 // 获取排行榜第一的漫画（简要信息）
 ComicDetail firstComic = resp.First();
 // 获取该漫画的详细信息
@@ -112,7 +112,7 @@ while (images.TryGetNextPage(out int nextPage))
 ！！！请您明白，**这是您自己的责任，作者不会为此负责**！！！没有人知道风控策略，用别怕，怕别用，封别叫！
 
 ```csharp
-List<ComicDetail> resp = await client.BulkGetFavourites(iterateToPage: 5);
+IList<ComicDetail> resp = await client.BulkGetFavourites(iterateToPage: 5);
 // 返回 5*20=100 个漫画简要信息，前提是你的收藏有这么多。
 ```
 

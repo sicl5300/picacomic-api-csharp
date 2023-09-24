@@ -5,16 +5,16 @@ using PicacomicSharp.Requests;
 namespace PicacomicSharp;
 
 [SuppressMessage("Usage", "MA0004:Use Task.ConfigureAwait(false)")]
-public static partial class PicaClientExtensions
+public static class PicaClientExtensions
 {
     private const int DefaultIterateToPage = 5;
-
+    
     private static async IAsyncEnumerable<TDoc> BulkGetPages<TDoc>(Func<int, Task<PicaPage<TDoc>>> func,
         int iterateToPage = DefaultIterateToPage)
     {
         var it = await func(1);
 
-        while (it.TryGetNextPage(out int nextPage))
+        while (it.TryGetNextPage(out var nextPage))
         {
             if (nextPage > iterateToPage) break;
             foreach (var tDoc in it.Data) yield return tDoc;
@@ -32,7 +32,7 @@ public static partial class PicaClientExtensions
     public static async Task<IList<CommentDetail>> BulkGetMyComments(this PicaClient client,
         int iterateToPage = DefaultIterateToPage)
     {
-        return await BulkGetPages<CommentDetail>(client.GetMyCommentsAsync, iterateToPage)
+        return await BulkGetPages<CommentDetail>(i => client.GetMyCommentsAsync(i), iterateToPage)
             .ToListAsync();
     }
 

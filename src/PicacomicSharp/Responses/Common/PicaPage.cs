@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 
 namespace PicacomicSharp.Responses.Common;
-
+#pragma warning disable CS8618 // 在退出构造函数时，不可为 null 的字段必须包含非 null 值。请考虑声明为可以为 null。
 /// <summary>
 ///     标准的分页响应数据，代表着下面例子中的<c>data</c>节。包含内容列表、当前页码、总页数、总元素数（所有页面中的元素之和）等等。
 /// </summary>
@@ -13,7 +13,7 @@ public sealed class PicaPage<TDoc>
     ///    "Detail of contents"，具体内容列表。
     /// </summary>
     [JsonPropertyName("docs")]
-    public List<TDoc> Data { get; set; }
+    public IList<TDoc> Data { get; set; }
 
     /// <summary>
     ///     总<see cref="TDoc" />元素数，所有页面中的元素之和。
