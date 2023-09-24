@@ -99,7 +99,7 @@ public sealed class FullComicDetail
     [JsonPropertyName("totalComments")]
     public int TotalComments { get; set; }
 
-    [JsonPropertyName("viewsCount")] 
+    [JsonPropertyName("viewsCount")]
     public int ViewsCount { get; set; }
 
     [JsonPropertyName("likesCount")]

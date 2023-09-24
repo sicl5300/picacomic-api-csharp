@@ -19,8 +19,9 @@ public static class ImageQualityExtensions
     /// <param name="imageQuality"></param>
     /// <returns>小写名称</returns>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
-    public static string ToApiString(this ImageQuality imageQuality) =>
-        imageQuality switch
+    public static string ToApiString(this ImageQuality imageQuality)
+    {
+        return imageQuality switch
         {
             ImageQuality.Original => "original",
             ImageQuality.Low => "low",
@@ -28,4 +29,5 @@ public static class ImageQualityExtensions
             ImageQuality.High => "high",
             _ => throw new ArgumentOutOfRangeException(nameof(imageQuality), imageQuality, null)
         };
+    }
 }

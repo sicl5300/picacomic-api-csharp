@@ -10,7 +10,7 @@ namespace PicacomicSharp.Responses.Common;
 public sealed class PicaPage<TDoc>
 {
     /// <summary>
-    ///    "Detail of contents"，具体内容列表。
+    ///     "Detail of contents"，具体内容列表。
     /// </summary>
     [JsonPropertyName("docs")]
     public IList<TDoc> Data { get; set; }

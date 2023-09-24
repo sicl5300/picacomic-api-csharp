@@ -23,17 +23,17 @@ public sealed class ResourceUrl
     /// </summary>
     [JsonPropertyName("fileServer")]
     public string FileServer { get; set; }
-    
+
     /// <summary>
     ///     转为完整的资源地址 URL。
     /// </summary>
     /// <returns>https://assets.helloworld.com/static/res/res.jpg</returns>
     public override string ToString()
     {
-        var fileServer = FileServer.EndsWith('/') ? FileServer : FileServer + "/";  // https://assets.helloworld.com/
-        fileServer += "static/";  // https://assets.helloworld.com/static/
-        
-        if (Path.StartsWith('/')) return fileServer +  Path[1..]; // avoid https://assets.helloworld.com/static//test.jpg
+        var fileServer = FileServer.EndsWith('/') ? FileServer : FileServer + "/"; // https://assets.helloworld.com/
+        fileServer += "static/"; // https://assets.helloworld.com/static/
+
+        if (Path.StartsWith('/')) return fileServer + Path[1..]; // avoid https://assets.helloworld.com/static//test.jpg
         return fileServer + Path; // https://assets.helloworld.com/static/path.jpg
     }
 }

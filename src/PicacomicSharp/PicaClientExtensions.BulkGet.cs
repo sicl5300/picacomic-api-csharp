@@ -8,7 +8,7 @@ namespace PicacomicSharp;
 public static class PicaClientExtensions
 {
     private const int DefaultIterateToPage = 5;
-    
+
     private static async IAsyncEnumerable<TDoc> BulkGetPages<TDoc>(Func<int, Task<PicaPage<TDoc>>> func,
         int iterateToPage = DefaultIterateToPage)
     {

@@ -14,11 +14,6 @@ public class PicaConfiguration
     public string BaseUrl = "https://picaapi.picacomic.com/";
 
     /// <summary>
-    ///     超时时间，单位为秒。
-    /// </summary>
-    public int Timeout = 10;
-
-    /// <summary>
     ///     加载漫画图片时的质量。
     /// </summary>
     public ImageQuality ImageQuality = ImageQuality.Original;
@@ -27,6 +22,29 @@ public class PicaConfiguration
     ///     加载漫画缩略图、头像略缩图、分类略缩图等内容时的质量。
     /// </summary>
     public ImageQuality ThumbnailQuality = ImageQuality.Medium;
+
+    /// <summary>
+    ///     超时时间，单位为秒。
+    /// </summary>
+    public int Timeout = 10;
+
+    public PicaConfiguration()
+    {
+        DefaultHeaders = new Dictionary<string, string>
+            (StringComparer.Ordinal)
+            {
+                ["api-key"] = _apiKey,
+                ["accept"] = _accept,
+                ["app-channel"] = _channel,
+                ["app-version"] = _version,
+                ["app-build-version"] = _buildVersion,
+                ["nonce"] = _nonce,
+                ["app-platform"] = _platform,
+                ["app-uuid"] = _appUuid,
+                ["user-Agent"] = _userAgent,
+                ["Host"] = _host
+            };
+    }
 
     #region API Authorization
 
@@ -46,22 +64,4 @@ public class PicaConfiguration
     public IDictionary<string, string> DefaultHeaders { get; }
 
     #endregion
-
-    public PicaConfiguration()
-    {
-        DefaultHeaders = new Dictionary<string, string>
-            (StringComparer.Ordinal)
-            {
-                ["api-key"] = _apiKey,
-                ["accept"] = _accept,
-                ["app-channel"] = _channel,
-                ["app-version"] = _version,
-                ["app-build-version"] = _buildVersion,
-                ["nonce"] = _nonce,
-                ["app-platform"] = _platform,
-                ["app-uuid"] = _appUuid,
-                ["user-Agent"] = _userAgent,
-                ["Host"] = _host,
-            };
-    }
 }

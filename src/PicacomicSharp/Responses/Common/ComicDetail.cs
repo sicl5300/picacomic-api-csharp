@@ -67,13 +67,13 @@ public sealed class ComicDetail
     /// </summary>
     [JsonPropertyName("leaderboardCount")]
     public int? LeaderboardCount { get; set; }
-    
+
     /// <summary>
     ///     漫画点赞数
     /// </summary>
     [JsonPropertyName("likesCount")]
     public int? LikesCount { get; set; }
-    
+
     /// <summary>
     ///     漫画浏览数
     /// </summary>

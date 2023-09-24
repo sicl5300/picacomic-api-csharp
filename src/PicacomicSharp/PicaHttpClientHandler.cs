@@ -1,4 +1,3 @@
-using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
 using PicacomicSharp.Common;
@@ -23,16 +22,14 @@ internal sealed class PicaHttpClientHandler : HttpClientHandler
     {
         // Add headers customized
         message.Headers.Add("image-quality", _configuration.ImageQuality.ToApiString());
-        
+
         var time = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
         message.Headers.Add("time", time);
 
         message.Headers.Add("signature", GetSignature(message, time));
 
         if (!string.IsNullOrEmpty(_configuration.AuthorizationToken))
-        {
             message.Headers.Add("authorization", _configuration.AuthorizationToken);
-        }
 
         return base.SendAsync(message, cancellationToken);
     }
